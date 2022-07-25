@@ -1,10 +1,5 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.8-bullseye
+FROM arm64v8/debian:bullseye
 
 RUN apt update
-RUN apt install curl vim git sudo inetutils-telnet
 
-COPY balenainstaller.sh balenainstaller.sh
-RUN chmod +x ./balenainstaller.sh
-
-RUN ./balenainstaller.sh
 CMD ["bash"]
