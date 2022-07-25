@@ -1,4 +1,10 @@
-FROM arm64v8/debian:bullseye-slim
-LABEL io.balena.architecture="aarch64"
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-bullseye
 
+RUN apt update
+RUN apt install curl vim git sudo
+
+COPY balenainstaller.sh balenainstaller.sh
+RUN chmod +x ./balenainstaller.sh
+
+CMD ./balenainstaller.sh
 CMD ["bash"]
