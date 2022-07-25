@@ -1,0 +1,4 @@
+FROM arm64v8/debian:bullseye-slim
+LABEL io.balena.architecture="aarch64"
+
+CMD ["bash"]
