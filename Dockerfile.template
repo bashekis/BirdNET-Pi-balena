@@ -1,10 +1,10 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-bullseye
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.8-bullseye
 
 RUN apt update
-RUN apt install curl vim git sudo
+RUN apt install curl vim git sudo inetutils-telnet
 
 COPY balenainstaller.sh balenainstaller.sh
 RUN chmod +x ./balenainstaller.sh
 
-CMD ./balenainstaller.sh
+RUN ./balenainstaller.sh
 CMD ["bash"]

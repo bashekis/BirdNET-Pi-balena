@@ -18,12 +18,14 @@ information"
   exit 1
 fi
 
+curl -OL https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v2.9.0/tflite_runtime-2.9.0-cp38-none-linux_aarch64.whl
+
 #Install/Configure /etc/birdnet/birdnet.conf
 ./install_config.sh || exit 1
 sudo -E HOME=$HOME USER=$USER ./install_services.sh || exit 1
 source /etc/birdnet/birdnet.conf
 
-install_birdnet() {
+install_birdnet_balena() {
   cd ~/BirdNET-Pi || exit 1
   echo "Establishing a python virtual environment"
   python3 -m venv birdnet
@@ -33,7 +35,7 @@ install_birdnet() {
 
 [ -d ${RECS_DIR} ] || mkdir -p ${RECS_DIR} &> /dev/null
 
-install_birdnet
+install_birdnet_balena
 
 cd $my_dir/scripts || exit 1
 
