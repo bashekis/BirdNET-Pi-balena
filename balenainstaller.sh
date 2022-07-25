@@ -19,7 +19,7 @@ if [[ ! -z $PACKAGES_MISSING ]] ; then
 fi
 
 branch=main
-git clone -b $branch https://github.com/mcguirepr89/BirdNET-Pi.git ${HOME}/BirdNET-Pi &&
+git clone -b $branch https://github.com/bashekis/BirdNET-Pi-balena.git ${HOME}/BirdNET-Pi &&
 
 $HOME/BirdNET-Pi/scripts/install_birdnet_balena.sh
 if [ ${PIPESTATUS[0]} -eq 0 ];then
